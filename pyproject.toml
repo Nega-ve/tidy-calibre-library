@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tidy-calibre-library"
+version = "0.1.0"
+description = "Find the damaged e-books in a calibre library: OCR errors, broken lines, lost or repeated text, missing chapters, DRM and broken files."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nega-ve" }]
+keywords = ["calibre", "ebook", "epub", "mobi", "pdf", "djvu", "ocr", "kindle"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Text Processing",
+]
+dynamic = ["dependencies"]  # requirements.txt: the Docker image installs from it too
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+tidy-calibre-library = "tidy_calibre_library.validate:main"
+
+[project.urls]
+Homepage = "https://github.com/Nega-ve/tidy-calibre-library"
+Issues = "https://github.com/Nega-ve/tidy-calibre-library/issues"
+Changelog = "https://github.com/Nega-ve/tidy-calibre-library/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ["tidy_calibre_library"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.pytest.ini_options]
+python_files = ["tests.py"]

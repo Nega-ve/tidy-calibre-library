@@ -1,0 +1,41 @@
+name: Missed defect
+description: The tool passes a damaged book.
+labels: ["missed defect"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. The tool cannot see every fault (see "Limits of this tool" in docs/CHECKS.md), but a clear example can become a new check.
+        **Do not attach a book or long passages of one.** Most books are under copyright. A short quote is enough.
+  - type: input
+    id: verdict
+    attributes:
+      label: The verdict it gave
+      placeholder: "KEEP"
+    validations:
+      required: true
+  - type: textarea
+    id: fault
+    attributes:
+      label: The fault
+      description: What is wrong, and how often? For example, "About one page in ten repeats the page before it."
+    validations:
+      required: true
+  - type: textarea
+    id: quote
+    attributes:
+      label: A short example
+      description: One or two sentences that show the fault.
+  - type: input
+    id: book
+    attributes:
+      label: Format and language
+      placeholder: "MOBI, English"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tool version
+      description: From `pipx list`, or the git commit.
+      placeholder: "0.1.0"

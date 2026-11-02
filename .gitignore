@@ -1,0 +1,12 @@
+# reports, cache (it can hold converted book text), word list, local settings
+out/
+cache/
+data/
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+build/
+dist/
+*.egg-info/

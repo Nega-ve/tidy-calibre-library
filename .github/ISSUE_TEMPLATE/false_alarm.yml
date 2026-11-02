@@ -1,0 +1,44 @@
+name: False alarm
+description: The tool flags a good book.
+labels: ["false alarm"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Each false alarm becomes a rule fix and a test.
+        **Do not attach a book or long passages of one.** Most books are under copyright. A short quote is enough.
+  - type: input
+    id: code
+    attributes:
+      label: Issue code and level
+      description: From the report.
+      placeholder: "chapter_gap, WARN"
+    validations:
+      required: true
+  - type: textarea
+    id: said
+    attributes:
+      label: What the report says
+      description: The message and its examples, copied from the book's card.
+    validations:
+      required: true
+  - type: textarea
+    id: real
+    attributes:
+      label: What the book really has
+      description: Why is this not a fault? For example, "The chapters are numbered by part, so the numbers jump from 12 to 101."
+    validations:
+      required: true
+  - type: input
+    id: book
+    attributes:
+      label: Format and language
+      placeholder: "EPUB, English"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tool version
+      description: From `pipx list`, or the git commit.
+      placeholder: "0.1.0"

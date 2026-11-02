@@ -1,0 +1,5 @@
+lxml
+numpy
+pillow
+requests
+wordfreq
